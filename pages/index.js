@@ -8,8 +8,8 @@ const Index = (props) => {
     return (
         <Layout>
             <div>
-                <GoalLeaders players={props.epl.elements} teams={props.epl.teams} />
-                <TeamsList players={props.epl.elements} teams={props.epl.teams} />
+                <GoalLeaders players={props.epl.elements} />
+                <TeamsList teams={props.epl.teams} />
             </div>
         </Layout>
     )

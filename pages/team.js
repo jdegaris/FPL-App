@@ -20,14 +20,14 @@ const Team = (props) => {
                     <th scope="col">Name</th>
                     <th scope="col">Goals</th>
                     <th scope="col">Assists</th>
-                    <th scope="col">Minutes</th>
+                    <th scope="col">Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {forwards.map(p => {
                         return (
                                 <tr>
-                                    <a href={`/player?id=${p.id}`}><td>{p.second_name}, {p.first_name}</td></a>
+                                    <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                                     <td>{p.goals_scored}</td>
                                     <td>{p.assists}</td>
                                     <td>{p.minutes}</td>
@@ -50,14 +50,12 @@ const Team = (props) => {
                 <tbody>
                     {midfielders.map(p => {
                         return (
-                        <Link href={`/player?id=${p.id}`}>
                             <tr>
-                                <td>{p.second_name}, {p.first_name}</td>
+                                <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                                 <td>{p.goals_scored}</td>
                                 <td>{p.assists}</td>
                                 <td>{p.minutes}</td>
                             </tr>
-                        </Link>
                         )
                     })}
                 </tbody>
@@ -77,15 +75,13 @@ const Team = (props) => {
                 <tbody>
                     {defenders.map(p => {
                         return (
-                            <Link href={`/player?id=${p.id}`}>
                         <tr>
-                            <td>{p.second_name}, {p.first_name}</td>
+                            <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                             <td>{p.clean_sheets}</td>
                             <td>{p.yellow_cards}</td>
                             <td>{p.red_cards}</td>
                             <td>{p.minutes}</td>
                         </tr>
-                        </Link>
                         )
                     })}
                 </tbody>
@@ -105,15 +101,13 @@ const Team = (props) => {
                 <tbody>
                     {goalkeepers.map(p => {
                         return (
-                            <Link href={`/player?id=${p.id}`}>
                         <tr>
-                            <td>{p.second_name}, {p.first_name}</td>
+                            <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                             <td>{p.clean_sheets}</td>
                             <td>{p.goals_conceded}</td>
                             <td>{p.saves}</td>
                             <td>{p.minutes}</td>
                         </tr>
-                        </Link>
                         )
                     })}
                 </tbody>

@@ -19,6 +19,13 @@ const Player = (props) => {
                                 />
                         <div className="list-group-item text-center bg-primary">
                             <h3>{ player[0].first_name } { player[0].second_name } </h3>
+                            <small >{
+                                player[0].element_type == 4 ? "Forward" :
+                                player[0].element_type == 3 ? "Midfielder" :
+                                player[0].element_type == 2 ? "Defender" :
+                                player[0].element_type == 1 ? "Goalkeeper" : ""
+
+                            }</small> <br />
                             <a href={`/team?id=${player[0].team_code}`}> 
                             <img 
                                     className="team-logo img-fluid"
