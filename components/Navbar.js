@@ -34,6 +34,10 @@ const Navbar = () => (
         .navbar-brand {
             font-size: 2rem;
         }
+        .nav-item {
+            font-size: 1.3rem;
+            margin-left: 1.3rem;
+        }
       `}</style>
     </nav>
 )

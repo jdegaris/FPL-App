@@ -16,7 +16,7 @@ class GoalLeaders extends React.Component {
                 .map(player => {
                 const photo = player.photo.split(".")[0]
                 return (
-                    <li key={player.code} >
+                    <li key={player.code} className="player" >
                         <a href={`/player?id=${player.id}`}>
                         <div className="row">
                             <div className="col-6 align-self-center text-center">
@@ -49,9 +49,15 @@ class GoalLeaders extends React.Component {
             </ul>
 
     <style jsx>{`
+        .player {
+            background-color: rgb(0, 255, 135) !important;
+        }
         .title {
             font-family: 'Muli';
             padding-bottom: 1rem;
+        }
+        h1 {
+            margin: 0;
         }
         .row {
             max-width: 1000px;

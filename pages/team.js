@@ -3,7 +3,6 @@ import Layout from '../components/Layout'
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link'
 
-
 const Team = (props) => {
     const router = useRouter()
     const players = props.epl.elements.filter(player => (router.query.id == player.team_code) && (player.minutes > 0))
@@ -14,19 +13,19 @@ const Team = (props) => {
     return (
         <Layout>
             <h2 className="text-center">Forwards</h2>
-            <table className="table table-dark text-center">
+            <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Goals</th>
-                    <th scope="col">Assists</th>
-                    <th scope="col">Minutes Played</th>
+                    <th>Name</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {forwards.map(p => {
                         return (
-                                <tr>
+                                <tr key={p.id}>
                                     <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                                     <td>{p.goals_scored}</td>
                                     <td>{p.assists}</td>
@@ -38,19 +37,20 @@ const Team = (props) => {
             </table>
 
             <h2 className="text-center">Midfielders</h2>
-            <table className="table table-dark text-center">
+            
+            <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Goals</th>
-                    <th scope="col">Assists</th>
-                    <th scope="col">Minutes Played</th>
+                    <th>Name</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {midfielders.map(p => {
                         return (
-                            <tr>
+                            <tr key={p.id}>
                                 <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                                 <td>{p.goals_scored}</td>
                                 <td>{p.assists}</td>
@@ -62,20 +62,20 @@ const Team = (props) => {
             </table>
 
             <h2 className="text-center">Defenders</h2>
-            <table className="table table-dark text-center">
+            <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Clean Sheets</th>
-                    <th scope="col">Yellow Cards</th>
-                    <th scope="col">Red Cards</th>
-                    <th scope="col">Minutes Played</th>
+                    <th>Name</th>
+                    <th>Clean Sheets</th>
+                    <th>Yellow Cards</th>
+                    <th>Red Cards</th>
+                    <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {defenders.map(p => {
                         return (
-                        <tr>
+                        <tr key={p.id}>
                             <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                             <td>{p.clean_sheets}</td>
                             <td>{p.yellow_cards}</td>
@@ -88,20 +88,20 @@ const Team = (props) => {
             </table>
 
             <h2 className="text-center">Goalkeepers</h2>
-            <table className="table table-dark text-center">
+            <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Clean Sheets</th>
-                        <th scope="col">Goals Conceded</th>
-                        <th scope="col">Saves</th>
-                        <th scope="col">Minutes Played</th>
+                        <th>Name</th>
+                        <th>Clean Sheets</th>
+                        <th>Goals Conceded</th>
+                        <th>Saves</th>
+                        <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {goalkeepers.map(p => {
                         return (
-                        <tr>
+                        <tr key={p.id}>
                             <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
                             <td>{p.clean_sheets}</td>
                             <td>{p.goals_conceded}</td>
@@ -116,6 +116,16 @@ const Team = (props) => {
         a {
             color: #fff;
             width: 100%;
+        }
+        thead {
+            font-size: 1rem;
+            color: rgb(0, 255, 135);
+        }
+        tbody {
+            font-size: 1rem;
+        }
+        td {
+            max-width: 100px;
         }
 
       `}
