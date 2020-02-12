@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import fetch from 'isomorphic-unfetch';
-import Link from 'next/link'
 
 const Team = (props) => {
     const router = useRouter()
@@ -16,35 +15,35 @@ const Team = (props) => {
             <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                    <th>Name</th>
-                    <th>Goals</th>
-                    <th>Assists</th>
-                    <th>Minutes Played</th>
+                        <th>Name</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {forwards.map(p => {
                         return (
-                                <tr key={p.id}>
-                                    <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
-                                    <td>{p.goals_scored}</td>
-                                    <td>{p.assists}</td>
-                                    <td>{p.minutes}</td>
-                                </tr>
-                            )
+                            <tr key={p.id}>
+                                <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
+                                <td>{p.goals_scored}</td>
+                                <td>{p.assists}</td>
+                                <td>{p.minutes}</td>
+                            </tr>
+                        )
                     })}
                 </tbody>
             </table>
 
             <h2 className="text-center">Midfielders</h2>
-            
+
             <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                    <th>Name</th>
-                    <th>Goals</th>
-                    <th>Assists</th>
-                    <th>Minutes Played</th>
+                        <th>Name</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,23 +64,23 @@ const Team = (props) => {
             <table className="table table-dark text-center table-hover">
                 <thead>
                     <tr>
-                    <th>Name</th>
-                    <th>Clean Sheets</th>
-                    <th>Yellow Cards</th>
-                    <th>Red Cards</th>
-                    <th>Minutes Played</th>
+                        <th>Name</th>
+                        <th>Clean Sheets</th>
+                        <th>Yellow Cards</th>
+                        <th>Red Cards</th>
+                        <th>Minutes Played</th>
                     </tr>
                 </thead>
                 <tbody>
                     {defenders.map(p => {
                         return (
-                        <tr key={p.id}>
-                            <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
-                            <td>{p.clean_sheets}</td>
-                            <td>{p.yellow_cards}</td>
-                            <td>{p.red_cards}</td>
-                            <td>{p.minutes}</td>
-                        </tr>
+                            <tr key={p.id}>
+                                <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
+                                <td>{p.clean_sheets}</td>
+                                <td>{p.yellow_cards}</td>
+                                <td>{p.red_cards}</td>
+                                <td>{p.minutes}</td>
+                            </tr>
                         )
                     })}
                 </tbody>
@@ -101,18 +100,18 @@ const Team = (props) => {
                 <tbody>
                     {goalkeepers.map(p => {
                         return (
-                        <tr key={p.id}>
-                            <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
-                            <td>{p.clean_sheets}</td>
-                            <td>{p.goals_conceded}</td>
-                            <td>{p.saves}</td>
-                            <td>{p.minutes}</td>
-                        </tr>
+                            <tr key={p.id}>
+                                <td><a href={`/player?id=${p.id}`}>{p.second_name}, {p.first_name}</a></td>
+                                <td>{p.clean_sheets}</td>
+                                <td>{p.goals_conceded}</td>
+                                <td>{p.saves}</td>
+                                <td>{p.minutes}</td>
+                            </tr>
                         )
                     })}
                 </tbody>
             </table>
-    <style jsx>{`
+            <style jsx>{`
         a {
             color: #fff;
             width: 100%;
@@ -129,20 +128,20 @@ const Team = (props) => {
         }
 
       `}
-    </style>
+            </style>
         </Layout>
     )
 }
 
-Team.getInitialProps = async function() {
+Team.getInitialProps = async function () {
 
 
     const res = await fetch
         ('https://fantasy.premierleague.com/api/bootstrap-static/');
-        const data = await res.json();
-        return {
+    const data = await res.json();
+    return {
         epl: data
-        }
+    }
 }
 
 export default Team;
